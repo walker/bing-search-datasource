@@ -13,7 +13,7 @@
  * &News.SortBy=Relevance
  * 
  * 
- * Use the $_schema in the model to supply custom values. The names must coincide with the values you created in mailchimp
+ * Use the $_schema in the model to supply custom values. The names must coincide with any POST variables added to the Bing API
  */
 App::import('Core', 'HttpSocket');
 class BingSearchSource extends DataSource {
@@ -40,7 +40,7 @@ class BingSearchSource extends DataSource {
 	 */
 	public function __construct($config) {
 		
-		//set ApiKey, default list Id
+		//set AppID
 		$this->appId = $config['appId'];
 		
 		//create socket connection
@@ -89,7 +89,7 @@ class BingSearchSource extends DataSource {
 		
 		$get_params = array();
 		
-		//set the method of the request, for a full listing of methods, see http://www.mailchimp.com/api/rtfm/
+		//Set the AppID
 		$queryData['conditions']['AppId'] = $this->appId;
 		
 		// Set our market & Version, we'll stick with 2.0 and en-us
