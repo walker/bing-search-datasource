@@ -7,7 +7,15 @@ Put this datasource in app/models/datasources.
 
 ##Use
 
-	$results = $bing->find('all', array('conditions'=>array('Query'=>'[search string]', 'Sources'=>array('News', 'Web'), 'News.Offset'=>'0')));
+	$results = $bing->find('all',
+		array(
+			'conditions' => array(
+				'Query' => '[search string]',
+				'Sources' => array('News', 'Web'),
+				'News.Offset'=>'0'
+			)
+		)
+	);
 
 Add your Bing developer credentials to the database.php file.
 
